@@ -29,7 +29,7 @@ managed_components/
 dependencies.lock
 
 # Partition tables
-partitions.csv
+
 partitions.bin
 
 # Bootloader
