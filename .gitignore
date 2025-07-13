@@ -1,6 +1,7 @@
 # ESP-IDF specific files
 build/
 sdkconfig
+sdkconfig.*
 sdkconfig.old
 sdkconfig.defaults
 sdkconfig.defaults.esp32
