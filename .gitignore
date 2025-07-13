@@ -3,15 +3,7 @@ build/
 sdkconfig
 sdkconfig.*
 sdkconfig.old
-sdkconfig.defaults
-sdkconfig.defaults.esp32
-sdkconfig.defaults.esp32s2
-sdkconfig.defaults.esp32s3
-sdkconfig.defaults.esp32c3
-sdkconfig.defaults.esp32c2
-sdkconfig.defaults.esp32c6
-sdkconfig.defaults.esp32h2
-sdkconfig.defaults.esp32p4
+
 
 # Build artifacts
 *.o
