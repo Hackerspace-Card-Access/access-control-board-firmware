@@ -1,0 +1,63 @@
+menu "Example Configuration"
+    config EXAMPLE_ETH_DEINIT_AFTER_S
+        int "Stop and deinit Ethernet after elapsing number of secs"
+        range -1 300
+        default -1
+        help
+            This option is for demonstration purposes only to demonstrate deinitialization of the Ethernet driver.
+            Set to -1 to not deinitialize.
+endmenu
+
+menu "OTA Configuration"
+
+    config OTA_UPDATE_URL
+        string "OTA Update URL"
+        default "https://your-ota-server.com/firmware.bin"
+        help
+            HTTPS URL where the firmware update can be downloaded from.
+            The URL should point to a binary file that can be flashed to the device.
+
+    config OTA_UPDATE_TIMEOUT_MS
+        int "OTA Update Timeout (ms)"
+        default 10000
+        range 5000 60000
+        help
+            Timeout in milliseconds for OTA update operations.
+
+    config OTA_SKIP_CERT_COMMON_NAME_CHECK
+        bool "Skip Certificate Common Name Check"
+        default n
+        help
+            Skip checking the common name in the server certificate.
+            Only enable this for testing purposes.
+            WARNING: This reduces security and should only be used for development/testing.
+
+    config OTA_AUTO_UPDATE_ENABLED
+        bool "Enable Automatic OTA Updates"
+        default n
+        help
+            Automatically check for and download OTA updates when Ethernet is connected.
+
+    config OTA_AUTO_UPDATE_INTERVAL_S
+        int "Auto Update Check Interval (seconds)"
+        default 3600
+        range 300 86400
+        depends on OTA_AUTO_UPDATE_ENABLED
+        help
+            Interval in seconds between automatic OTA update checks.
+
+    config EMBED_SERVER_CERT
+        bool "Embed Server Certificate"
+        default y
+        help
+            Embed the server certificate in the firmware binary.
+            The certificate file should be placed in the 'certs' directory.
+
+    config EMBED_CLIENT_CERT
+        bool "Embed Client Certificate"
+        default n
+        help
+            Embed client certificate and private key in the firmware binary.
+            The certificate and key files should be placed in the 'certs' directory.
+
+endmenu
