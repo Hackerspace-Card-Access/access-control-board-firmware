@@ -1,0 +1,128 @@
+# ESP-IDF specific files
+build/
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults
+sdkconfig.defaults.esp32
+sdkconfig.defaults.esp32s2
+sdkconfig.defaults.esp32s3
+sdkconfig.defaults.esp32c3
+sdkconfig.defaults.esp32c2
+sdkconfig.defaults.esp32c6
+sdkconfig.defaults.esp32h2
+sdkconfig.defaults.esp32p4
+
+# Build artifacts
+*.o
+*.a
+*.elf
+*.bin
+*.map
+*.hex
+*.dis
+*.d
+*.pyc
+__pycache__/
+
+# ESP-IDF managed components
+managed_components/
+dependencies.lock
+
+# Partition tables
+partitions.csv
+partitions.bin
+
+# Bootloader
+bootloader.bin
+
+# OTA files
+ota_data_initial.bin
+
+# Flash files
+flash_args
+flash_args.bin
+
+# Logs
+*.log
+log/
+logs/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Python virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# ESP-IDF tools and cache
+.espressif/
+esp-idf-tools-setup-online-v*.exe
+esp-idf-tools-setup-online-v*.sh
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Coverage reports
+*.gcov
+*.gcda
+*.gcno
+coverage/
+
+# Memory analysis
+heap_info.txt
+memory_info.txt
+
+# Serial monitor logs
+serial_monitor.log
+
+# Custom user files
+user_config.h
+user_config.c
+
+# Backup files
+*.orig
+*.rej
+
+# ESP-IDF examples (if copied)
+examples/
+components/example/
+
+# Documentation build
+docs/_build/
+docs/build/
+
+# Test artifacts
+test_results/
+test_logs/
+
+# Firmware images
+firmware.bin
+app.bin
+app0.bin
+app1.bin
+
+# Secure boot and encryption
+secure_boot_signing_key.pem
+flash_encryption_key.bin
+
+# JTAG and debugging
+*.jlink
+*.gdbinit
+*.gdb 
