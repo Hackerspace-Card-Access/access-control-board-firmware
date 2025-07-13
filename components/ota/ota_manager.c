@@ -210,7 +210,23 @@ static void ota_update_task(void *pvParameter)
         goto cleanup;
     }
 
+    // Get current running firmware version
+    const esp_app_desc_t *running_app_desc = esp_app_get_description();
+    ESP_LOGI(TAG, "Current firmware version: %s", running_app_desc->version);
     ESP_LOGI(TAG, "New firmware version: %s", app_desc.version);
+    
+    // Compare versions
+    if (strcmp(running_app_desc->version, app_desc.version) == 0) {
+        ESP_LOGW(TAG, "New firmware version is the same as current version - skipping update");
+        event_data.event = OTA_EVENT_FAILED;
+        event_data.error_message = "Firmware version is already up to date";
+        if (ota_manager.event_callback) {
+            ota_manager.event_callback(&event_data);
+        }
+        goto cleanup;
+    }
+    
+    ESP_LOGI(TAG, "Firmware version differs - proceeding with update");
 
     // Download and flash firmware
     while (1) {
