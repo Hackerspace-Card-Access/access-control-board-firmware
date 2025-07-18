@@ -404,10 +404,10 @@ CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
 #
-# Example Configuration
+# Access Control Node Configuration
 #
 CONFIG_EXAMPLE_ETH_DEINIT_AFTER_S=-1
-# end of Example Configuration
+# end of Access Control Node Configuration
 
 #
 # OTA Configuration
@@ -421,7 +421,7 @@ CONFIG_EMBED_SERVER_CERT=y
 # end of OTA Configuration
 
 #
-# Example Ethernet Configuration
+# Access Control Node Ethernet Configuration
 #
 CONFIG_ENV_GPIO_RANGE_MIN=0
 CONFIG_ENV_GPIO_RANGE_MAX=39
@@ -439,7 +439,7 @@ CONFIG_EXAMPLE_ETH_MDIO_GPIO=17
 CONFIG_EXAMPLE_ETH_PHY_RST_GPIO=-1
 CONFIG_EXAMPLE_ETH_PHY_ADDR=-1
 # CONFIG_EXAMPLE_USE_SPI_ETHERNET is not set
-# end of Example Ethernet Configuration
+# end of Access Control Node Ethernet Configuration
 
 #
 # Compiler options

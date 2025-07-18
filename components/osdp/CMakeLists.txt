@@ -1,4 +1,5 @@
 list(APPEND LIBOSDP_SOURCES
+	osdp_component.c
 	libosdp/src/osdp_common.c
 	libosdp/src/osdp_phy.c
 	libosdp/src/osdp_pd.c

@@ -1,4 +1,4 @@
-/* Ethernet Basic Example
+/* Access Control Node
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -16,9 +16,10 @@
 #include "esp_log.h"
 #include "ethernet_init.h"
 #include "ota_manager.h"
+#include "osdp_component.h"
 #include "sdkconfig.h"
 
-static const char *TAG = "eth_example";
+static const char *TAG = "ACCESS_CTL";
 
 // OTA certificate declarations (will be embedded during build if enabled)
 #ifdef CONFIG_EMBED_SERVER_CERT
@@ -134,10 +135,13 @@ void app_main(void)
 
     ESP_ERROR_CHECK(ota_manager_init(&ota_config, ota_event_handler));
     
+    // Initialize OSDP component
+    ESP_ERROR_CHECK(osdp_init());
+    
     // Initialize Ethernet driver
     uint8_t eth_port_cnt = 0;
     esp_eth_handle_t *eth_handles;
-    ESP_ERROR_CHECK(example_eth_init(&eth_handles, &eth_port_cnt));
+    ESP_ERROR_CHECK(access_control_eth_init(&eth_handles, &eth_port_cnt));
 
     // Initialize TCP/IP network interface aka the esp-netif (should be called only once in application)
     ESP_ERROR_CHECK(esp_netif_init());
@@ -201,7 +205,7 @@ void app_main(void)
         esp_netif_destroy(eth_netifs[i]);
     }
     esp_netif_deinit();
-    ESP_ERROR_CHECK(example_eth_deinit(eth_handles, eth_port_cnt));
+    ESP_ERROR_CHECK(access_control_eth_deinit(eth_handles, eth_port_cnt));
     ESP_ERROR_CHECK(esp_event_handler_unregister(IP_EVENT, IP_EVENT_ETH_GOT_IP, got_ip_event_handler));
     ESP_ERROR_CHECK(esp_event_handler_unregister(ETH_EVENT, ESP_EVENT_ANY_ID, eth_event_handler));
     ESP_ERROR_CHECK(esp_event_loop_delete_default());

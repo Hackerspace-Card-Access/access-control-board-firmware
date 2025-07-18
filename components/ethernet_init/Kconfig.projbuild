@@ -1,4 +1,4 @@
-menu "Example Ethernet Configuration"
+menu "Access Control Node Ethernet Configuration"
 
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
@@ -15,7 +15,7 @@ menu "Example Ethernet Configuration"
             prompt "Ethernet PHY Device"
             default EXAMPLE_ETH_PHY_IP101
             help
-                Select the Ethernet PHY device to use in the example.
+                Select the Ethernet PHY device to use in the access control node.
 
             config EXAMPLE_ETH_PHY_GENERIC
                 bool "Generic 802.3 PHY"
@@ -121,7 +121,7 @@ menu "Example Ethernet Configuration"
             prompt "Ethernet SPI"
             default EXAMPLE_USE_W5500
             help
-                Select which kind of Ethernet will be used in the example.
+                Select which kind of Ethernet will be used in the access control node.
 
             config EXAMPLE_USE_DM9051
                 bool "DM9051 Module"

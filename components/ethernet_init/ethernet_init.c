@@ -43,7 +43,7 @@ typedef struct {
     uint8_t *mac_addr;
 }spi_eth_module_config_t;
 
-static const char *TAG = "example_eth_init";
+static const char *TAG = "ACCESS_CTL_ETH";
 #if CONFIG_EXAMPLE_USE_SPI_ETHERNET
 static bool gpio_isr_svc_init_by_eth = false; // indicates that we initialized the GPIO ISR service
 #endif // CONFIG_EXAMPLE_USE_SPI_ETHERNET
@@ -245,7 +245,7 @@ err:
 }
 #endif // CONFIG_EXAMPLE_USE_SPI_ETHERNET
 
-esp_err_t example_eth_init(esp_eth_handle_t *eth_handles_out[], uint8_t *eth_cnt_out)
+esp_err_t access_control_eth_init(esp_eth_handle_t *eth_handles_out[], uint8_t *eth_cnt_out)
 {
     esp_err_t ret = ESP_OK;
     esp_eth_handle_t *eth_handles = NULL;
@@ -306,7 +306,7 @@ err:
 #endif
 }
 
-esp_err_t example_eth_deinit(esp_eth_handle_t *eth_handles, uint8_t eth_cnt)
+esp_err_t access_control_eth_deinit(esp_eth_handle_t *eth_handles, uint8_t eth_cnt)
 {
     ESP_RETURN_ON_FALSE(eth_handles != NULL, ESP_ERR_INVALID_ARG, TAG, "array of Ethernet handles cannot be NULL");
     for (int i = 0; i < eth_cnt; i++) {

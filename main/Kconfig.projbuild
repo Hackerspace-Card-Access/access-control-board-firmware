@@ -1,4 +1,4 @@
-menu "Example Configuration"
+menu "Access Control Node Configuration"
     config EXAMPLE_ETH_DEINIT_AFTER_S
         int "Stop and deinit Ethernet after elapsing number of secs"
         range -1 300
