@@ -21,4 +21,6 @@ list(APPEND LIBOSDP_INCLUDES
 )
 
 idf_component_register(SRCS ${LIBOSDP_SOURCES}
-	INCLUDE_DIRS ${LIBOSDP_INCLUDES})
+    INCLUDE_DIRS ${LIBOSDP_INCLUDES}
+    REQUIRES esp_driver_uart esp_driver_gpio freertos
+)

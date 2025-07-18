@@ -1,0 +1,85 @@
+menu "OSDP Configuration"
+
+    config OSDP_UART_NUM
+        int "OSDP UART Number"
+        default 2
+        range 0 2
+        help
+            UART port number to use for OSDP communication.
+
+    config OSDP_RS485_DE_GPIO
+        int "RS485 DE (Driver Enable) GPIO"
+        default 12
+        range 0 39
+        help
+            GPIO pin for RS485 Driver Enable (DE) signal.
+
+    config OSDP_RS485_DI_GPIO
+        int "RS485 DI (Driver Input) GPIO"
+        default 33
+        range 0 39
+        help
+            GPIO pin for RS485 Driver Input (DI) signal.
+
+    config OSDP_RS485_RO_GPIO
+        int "RS485 RO (Receiver Output) GPIO"
+        default 39
+        range 0 39
+        help
+            GPIO pin for RS485 Receiver Output (RO) signal.
+
+    config OSDP_RS485_RE_GPIO
+        int "RS485 RE (Receiver Enable) GPIO"
+        default 32
+        range 0 39
+        help
+            GPIO pin for RS485 Receiver Enable (RE) signal.
+
+    config OSDP_BAUD_RATE
+        int "OSDP Baud Rate"
+        default 9600
+        help
+            Baud rate for OSDP communication. Standard OSDP supports:
+            9600, 19200, 38400, 115200, 230400
+
+    choice OSDP_BAUD_RATE_CHOICE
+        prompt "OSDP Baud Rate Selection"
+        default OSDP_BAUD_9600
+        help
+            Select the baud rate for OSDP communication.
+
+        config OSDP_BAUD_9600
+            bool "9600 bps"
+        config OSDP_BAUD_19200
+            bool "19200 bps"
+        config OSDP_BAUD_38400
+            bool "38400 bps"
+        config OSDP_BAUD_115200
+            bool "115200 bps"
+        config OSDP_BAUD_230400
+            bool "230400 bps"
+    endchoice
+
+    config OSDP_PD_ADDRESS
+        int "OSDP PD Address"
+        default 1
+        range 0 127
+        help
+            Peripheral Device address for OSDP communication.
+            Valid range is 0-127 (7-bit address).
+
+    config OSDP_ENABLE_SECURE_CHANNEL
+        bool "Enable OSDP Secure Channel"
+        default y
+        help
+            Enable OSDP Secure Channel (SC) for encrypted communication.
+
+    config OSDP_SCBK
+        string "OSDP Secure Channel Base Key (hex)"
+        default "000102030405060708090A0B0C0D0E0F"
+        depends on OSDP_ENABLE_SECURE_CHANNEL
+        help
+            16-byte Secure Channel Base Key in hexadecimal format.
+            Must be exactly 32 hex characters (16 bytes).
+
+endmenu 
