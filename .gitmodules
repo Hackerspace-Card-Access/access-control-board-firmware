@@ -1,0 +1,3 @@
+[submodule "components/osdp/libosdp"]
+	path = components/osdp/libosdp
+	url = https://github.com/goToMain/libosdp.git
